@@ -1,0 +1,28 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        // Initialize variables to keep track of maximum and temporary wealth
+        int max = 0;
+        int temp = 0;
+        
+        // Iterate over the rows (individuals) of the accounts array
+        for (int i = 0; i < accounts.length; i++) {
+            // Iterate over the columns (accounts) of the current individual
+            for (int j = 0; j < accounts[i].length; j++) {
+                // Accumulate the wealth by adding the value of each account to temp
+                temp += accounts[i][j];
+            }
+            
+            // Compare temp with the current maximum wealth (max)
+            // If temp is greater than max, update max with the new maximum wealth
+            if (temp > max) {
+                max = temp;
+            }
+            
+            // Reset temp to 0 for the next individual
+            temp = 0;
+        }
+        
+        // Return the maximum wealth among all individuals
+        return max;
+    }
+}
